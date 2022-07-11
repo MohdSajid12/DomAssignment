@@ -81,3 +81,45 @@ var parentnode = document.getElementById('.list-group');
 console.log(parentnode.innerHTML);
 
 parentnode = '<li> hello </li>'+parentnode;
+
+
+
+let element = document.createElement('li');
+element.className  =  'list-group-item';
+element.setAttribute('title' ,'mytitle');
+element.innerText='item 5';
+
+let ul = document.querySelector('ul.list-group');
+let deletebtn = document.createElement('button');
+deletebtn.className ='btn btn-danger btn-sm float-right delete';
+
+deletebtn.appendChild(document.createTextNode('X'));
+element.appendChild(deletebtn);
+
+ul.appendChild(element);
+
+console.log(ul);
+
+console.log(element);
+
+
+//REMOVE ITEMS
+
+var form = document.getElementById('addForm');
+//console.log(form);
+var itemList = document.getElementById('items');
+//console.log(itemList);
+itemList.addEventListener('click' , removeItem)
+
+function removeItem(e)
+{
+  //  console.log(1);
+  if(e.target.classList.contains('delete'))
+  {
+    if(confirm('Are you sure?')){
+        var li = e.target.parentElement;
+        itemList.removeChild(li);
+
+    }
+  }
+}
