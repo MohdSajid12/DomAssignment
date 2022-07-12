@@ -146,3 +146,16 @@ function filterItems(e)
     }
    });
 }
+
+
+
+
+//local Storage
+
+let impArray = ['mangp','banana','apple'];
+
+localStorage.setItem('fruits' , JSON.stringify(impArray));
+
+let name =JSON.parse(localStorage.getItem('fruits'));
+
+console.log(name);
